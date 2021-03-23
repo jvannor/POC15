@@ -4,7 +4,7 @@
     "POC15": {
       "properties": [
         {
-          "name": "andriodSecret",
+          "name": "androidSecret",
           "type": "String",
           "defaultValue": "00000000-0000-0000-0000-000000000000"
         },
