@@ -1,8 +1,12 @@
-﻿using POC15.Services;
-using POC15.Views;
-using System;
+﻿using System;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using POC15.Helpers;
+using POC15.Services;
+using POC15.Views;
 
 namespace POC15
 {
@@ -12,13 +16,19 @@ namespace POC15
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
+            InitializeApp();
+     
             MainPage = new AppShell();
+        }
+
+        private void InitializeApp()
+        {
+            AppContainer.RegisterDependencies();
         }
 
         protected override void OnStart()
         {
+            AppCenter.Start($"android={Secrets.androidSecret};ios={Secrets.iOSSecret}", typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()

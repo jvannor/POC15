@@ -1,16 +1,16 @@
-﻿using POC15.Models;
-using POC15.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
+using POC15.Models;
+using POC15.Services;
 
 namespace POC15.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IDataStore<Item> DataStore => AppContainer.Resolve<IDataStore<Item>>();
 
         bool isBusy = false;
         public bool IsBusy
