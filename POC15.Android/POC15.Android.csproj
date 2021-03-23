@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -88,7 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\POC15\POC15.csproj">
-      <Project>{CB8DAB23-9E9C-4659-8C12-C24279AC6B78}</Project>
+      <Project>{F2EEC7E7-8D8E-4312-A69D-6A9BBEC769C7}</Project>
       <Name>POC15</Name>
     </ProjectReference>
   </ItemGroup>
