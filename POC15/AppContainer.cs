@@ -4,6 +4,7 @@ using System.Text;
 using Autofac;
 using POC15.Models;
 using POC15.Services;
+using POC15.ViewModels;
 
 namespace POC15
 {
@@ -13,7 +14,14 @@ namespace POC15
         {
             var builder = new ContainerBuilder();
 
-            // services
+            // ViewModels
+            builder.RegisterType<AboutViewModel>();
+            builder.RegisterType<ItemDetailViewModel>();
+            builder.RegisterType<ItemsViewModel>();
+            builder.RegisterType<LoginViewModel>();
+            builder.RegisterType<NewItemViewModel>();
+
+            // Services
             builder.RegisterType<AuthenticationService>().As<IAuthenticationService>();
             builder.RegisterType<MockDataStore>().As<IDataStore<Item>>().SingleInstance();
             

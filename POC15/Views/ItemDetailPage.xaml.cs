@@ -1,6 +1,6 @@
-﻿using POC15.ViewModels;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using Xamarin.Forms;
+using POC15.ViewModels;
 
 namespace POC15.Views
 {
@@ -9,7 +9,9 @@ namespace POC15.Views
         public ItemDetailPage()
         {
             InitializeComponent();
-            BindingContext = new ItemDetailViewModel();
+            BindingContext = viewModel = AppContainer.Resolve<ItemDetailViewModel>();
         }
+
+        private ItemDetailViewModel viewModel;
     }
 }

@@ -1,11 +1,11 @@
-﻿using POC15.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using POC15.ViewModels;
 
 namespace POC15.Views
 {
@@ -15,7 +15,9 @@ namespace POC15.Views
         public LoginPage()
         {
             InitializeComponent();
-            this.BindingContext = new LoginViewModel();
+            BindingContext = viewModel = AppContainer.Resolve<LoginViewModel>();
         }
+
+        private LoginViewModel viewModel;
     }
 }
