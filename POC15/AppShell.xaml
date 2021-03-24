@@ -74,7 +74,7 @@
     </Shell.Resources>
 
     <ShellItem Route="Loading">
-        <ShellContent ContentTemplate="{DataTemplate local:LoadingPage}"/>
+        <ShellContent Route="LoadingPage" ContentTemplate="{DataTemplate local:LoadingPage}"/>
     </ShellItem>
 
     <!-- 
