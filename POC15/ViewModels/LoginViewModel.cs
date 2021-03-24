@@ -1,8 +1,10 @@
-﻿using POC15.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using POC15.Models;
+using POC15.Services;
+using POC15.Views;
 
 namespace POC15.ViewModels
 {

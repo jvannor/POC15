@@ -1,24 +1,28 @@
-﻿using POC15.Models;
-using POC15.Views;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using POC15.Models;
+using POC15.Services;
+using POC15.Views;
 
 namespace POC15.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        private Item _selectedItem;
-
         public ObservableCollection<Item> Items { get; }
+
         public Command LoadItemsCommand { get; }
+
         public Command AddItemCommand { get; }
+
         public Command<Item> ItemTapped { get; }
 
-        public ItemsViewModel()
+        public ItemsViewModel(IDataStore<Item> store)
         {
+            dataStore = store;
+
             Title = "Browse";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
@@ -35,7 +39,7 @@ namespace POC15.ViewModels
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
+                var items = await dataStore.GetItemsAsync(true);
                 foreach (var item in items)
                 {
                     Items.Add(item);
@@ -80,5 +84,8 @@ namespace POC15.ViewModels
             // This will push the ItemDetailPage onto the navigation stack
             await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
         }
+
+        private IDataStore<Item> dataStore;
+        private Item _selectedItem;
     }
 }

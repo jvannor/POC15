@@ -1,17 +1,15 @@
-﻿using POC15.Models;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using POC15.Models;
+using POC15.Services;
 
 namespace POC15.ViewModels
 {
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public class ItemDetailViewModel : BaseViewModel
     {
-        private string itemId;
-        private string text;
-        private string description;
         public string Id { get; set; }
 
         public string Text
@@ -39,11 +37,16 @@ namespace POC15.ViewModels
             }
         }
 
+        public ItemDetailViewModel(IDataStore<Item> store)
+        {
+            dataStore = store;
+        }
+
         public async void LoadItemId(string itemId)
         {
             try
             {
-                var item = await DataStore.GetItemAsync(itemId);
+                var item = await dataStore.GetItemAsync(itemId);
                 Id = item.Id;
                 Text = item.Text;
                 Description = item.Description;
@@ -53,5 +56,10 @@ namespace POC15.ViewModels
                 Debug.WriteLine("Failed to Load Item");
             }
         }
+
+        private IDataStore<Item> dataStore;
+        private string itemId;
+        private string text;
+        private string description;
     }
 }

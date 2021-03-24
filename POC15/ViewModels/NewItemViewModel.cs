@@ -1,30 +1,18 @@
-﻿using POC15.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using POC15.Services;
+using POC15.Models;
 
 namespace POC15.ViewModels
 {
     public class NewItemViewModel : BaseViewModel
     {
-        private string text;
-        private string description;
+        public Command SaveCommand { get; }
 
-        public NewItemViewModel()
-        {
-            SaveCommand = new Command(OnSave, ValidateSave);
-            CancelCommand = new Command(OnCancel);
-            this.PropertyChanged +=
-                (_, __) => SaveCommand.ChangeCanExecute();
-        }
-
-        private bool ValidateSave()
-        {
-            return !String.IsNullOrWhiteSpace(text)
-                && !String.IsNullOrWhiteSpace(description);
-        }
+        public Command CancelCommand { get; }
 
         public string Text
         {
@@ -38,8 +26,21 @@ namespace POC15.ViewModels
             set => SetProperty(ref description, value);
         }
 
-        public Command SaveCommand { get; }
-        public Command CancelCommand { get; }
+        public NewItemViewModel(IDataStore<Item> store)
+        {
+            dataStore = store;
+
+            SaveCommand = new Command(OnSave, ValidateSave);
+            CancelCommand = new Command(OnCancel);
+            this.PropertyChanged +=
+                (_, __) => SaveCommand.ChangeCanExecute();
+        }
+
+        private bool ValidateSave()
+        {
+            return !String.IsNullOrWhiteSpace(text)
+                && !String.IsNullOrWhiteSpace(description);
+        }
 
         private async void OnCancel()
         {
@@ -56,10 +57,14 @@ namespace POC15.ViewModels
                 Description = Description
             };
 
-            await DataStore.AddItemAsync(newItem);
+            await dataStore.AddItemAsync(newItem);
 
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
         }
+
+        private IDataStore<Item> dataStore;
+        private string text;
+        private string description;
     }
 }

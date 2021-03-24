@@ -2,6 +2,8 @@
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using POC15.Models;
+using POC15.Services;
 
 namespace POC15.ViewModels
 {
