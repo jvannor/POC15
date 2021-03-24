@@ -15,9 +15,6 @@ namespace POC15.Views
         public LoginPage()
         {
             InitializeComponent();
-            BindingContext = viewModel = AppContainer.Resolve<LoginViewModel>();
         }
-
-        private LoginViewModel viewModel;
     }
 }

@@ -9,21 +9,24 @@ namespace POC15.ViewModels
 {
     public class LoadingViewModel : BaseViewModel
     {
-        public LoadingViewModel(IAuthenticationService authentication)
+        public Command InitializeCommand { get;  }
+
+        public LoadingViewModel(INavigationService navigation, IAuthenticationService authentication) : base(navigation)
         {
             authenticationService = authentication;
+            InitializeCommand = new Command(OnInitialize);
         }
 
-        public async Task OnAppearing()
+        private async void OnInitialize()
         {
             var authenticated = await authenticationService.SignIn();
             if (authenticated)
             {
-                await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+                await navigationService.GoToRoute($"//{nameof(AboutPage)}");
             }
             else
             {
-                await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+                await navigationService.GoToRoute($"//{nameof(LoginPage)}");
             }
         }
 

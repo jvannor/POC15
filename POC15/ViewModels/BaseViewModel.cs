@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using POC15.Models;
 using POC15.Services;
@@ -24,8 +25,9 @@ namespace POC15.ViewModels
             set { SetProperty(ref title, value); }
         }
 
-        public BaseViewModel()
+        public BaseViewModel(INavigationService navigation)
         {
+            navigationService = navigation;
         }
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
@@ -50,6 +52,7 @@ namespace POC15.ViewModels
             return true;
         }
 
+        protected INavigationService navigationService;
         private bool isBusy = false;
         private string title = string.Empty;
     }

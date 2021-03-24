@@ -9,9 +9,6 @@ namespace POC15.Views
         public ItemDetailPage()
         {
             InitializeComponent();
-            BindingContext = viewModel = AppContainer.Resolve<ItemDetailViewModel>();
         }
-
-        private ItemDetailViewModel viewModel;
     }
 }

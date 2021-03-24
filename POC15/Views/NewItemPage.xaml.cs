@@ -10,14 +10,9 @@ namespace POC15.Views
 {
     public partial class NewItemPage : ContentPage
     {
-        public Item Item { get; set; }
-
         public NewItemPage()
         {
             InitializeComponent();
-            BindingContext = viewModel = AppContainer.Resolve<NewItemViewModel>();
         }
-
-        private NewItemViewModel viewModel;
     }
 }

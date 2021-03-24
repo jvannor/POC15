@@ -9,7 +9,7 @@ namespace POC15.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {
-        public AboutViewModel()
+        public AboutViewModel(INavigationService navigation) : base(navigation)
         {
             Title = "About";
             OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));

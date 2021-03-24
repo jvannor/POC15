@@ -17,16 +17,6 @@ namespace POC15.Views
         public ItemsPage()
         {
             InitializeComponent();
-
-            BindingContext = viewModel = AppContainer.Resolve<ItemsViewModel>();
         }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            viewModel.OnAppearing();
-        }
-
-        ItemsViewModel viewModel;
     }
 }

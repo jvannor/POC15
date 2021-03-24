@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:u="clr-namespace:POC15.Utilities"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="POC15.Views.NewItemPage"
+             u:ViewModelLocator.AutoWireViewModel="True"
              Shell.PresentationMode="ModalAnimated"
-             Title="New Item"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="true">
+             Title="New Item">
     <ContentPage.Content>
         <StackLayout Spacing="3" Padding="15">
             <Label Text="Text" FontSize="Medium" />

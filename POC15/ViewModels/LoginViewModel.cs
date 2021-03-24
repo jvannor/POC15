@@ -12,7 +12,7 @@ namespace POC15.ViewModels
     {
         public Command LoginCommand { get; }
 
-        public LoginViewModel()
+        public LoginViewModel(INavigationService navigation) : base(navigation)
         {
             LoginCommand = new Command(OnLoginClicked);
         }
@@ -20,7 +20,7 @@ namespace POC15.ViewModels
         private async void OnLoginClicked(object obj)
         {
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            await Shell.Current.GoToAsync($"//{nameof(LoadingPage)}");
+            await navigationService.GoToRoute($"//{nameof(LoadingPage)}");
         }
     }
 }

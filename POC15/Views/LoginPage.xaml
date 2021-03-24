@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:u="clr-namespace:POC15.Utilities"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              mc:Ignorable="d"
              x:Class="POC15.Views.LoginPage"
+             u:ViewModelLocator.AutoWireViewModel="True"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">

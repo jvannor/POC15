@@ -24,6 +24,7 @@ namespace POC15
 
             // Services
             builder.RegisterType<AuthenticationService>().As<IAuthenticationService>();
+            builder.RegisterType<NavigationService>().As<INavigationService>();
             builder.RegisterType<MockDataStore>().As<IDataStore<Item>>().SingleInstance();
             
             container = builder.Build();

@@ -37,7 +37,7 @@ namespace POC15.ViewModels
             }
         }
 
-        public ItemDetailViewModel(IDataStore<Item> store)
+        public ItemDetailViewModel(INavigationService navigation, IDataStore<Item> store) : base(navigation)
         {
             dataStore = store;
         }

@@ -10,7 +10,7 @@ namespace POC15.Services
         public async Task<bool> SignIn()
         {
             await Task.Delay(2500);
-            return false;
+            return true;
         }
 
         public async Task<bool> SignOut()

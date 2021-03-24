@@ -26,7 +26,7 @@ namespace POC15.ViewModels
             set => SetProperty(ref description, value);
         }
 
-        public NewItemViewModel(IDataStore<Item> store)
+        public NewItemViewModel(INavigationService navigation, IDataStore<Item> store) : base(navigation)
         {
             dataStore = store;
 
@@ -45,7 +45,7 @@ namespace POC15.ViewModels
         private async void OnCancel()
         {
             // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
+            await navigationService.GoToRoute("..");
         }
 
         private async void OnSave()
@@ -60,7 +60,7 @@ namespace POC15.ViewModels
             await dataStore.AddItemAsync(newItem);
 
             // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
+            await navigationService.GoToRoute("..");
         }
 
         private IDataStore<Item> dataStore;

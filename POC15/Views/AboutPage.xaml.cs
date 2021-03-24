@@ -11,9 +11,6 @@ namespace POC15.Views
         public AboutPage()
         {
             InitializeComponent();
-            BindingContext = viewModel = AppContainer.Resolve<AboutViewModel>();
         }
-
-        private AboutViewModel viewModel;
     }
 }
