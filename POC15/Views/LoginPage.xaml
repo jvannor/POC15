@@ -7,10 +7,22 @@
              mc:Ignorable="d"
              x:Class="POC15.Views.LoginPage"
              u:ViewModelLocator.AutoWireViewModel="True"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="True"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.TabBarIsVisible="False"
+             Shell.PresentationMode="ModalAnimated"
+             Title="Login">
+    <ContentPage.Behaviors>
+        <u:EventToCommandBehavior EventName="Appearing" Command="{Binding CheckSignInStatusCommand}"/>
+    </ContentPage.Behaviors>
     <ContentPage.Content>
-        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
-        </StackLayout>
+        <Grid Margin="10" RowDefinitions="*, *, Auto">
+            <Label Text="POC15" FontSize="Large" HorizontalOptions="Center" VerticalOptions="End" />
+            <StackLayout Grid.Row="1" VerticalOptions="Start">
+                <ActivityIndicator Color="Accent" HorizontalOptions="Center" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+                <Label Text="Loading..." HorizontalOptions="Center" IsVisible="{Binding IsBusy}" />
+            </StackLayout>
+            <Button Grid.Row="2" Text="Login" Command="{Binding LoginCommand}"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

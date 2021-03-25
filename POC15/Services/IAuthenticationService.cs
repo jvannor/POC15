@@ -7,6 +7,8 @@ namespace POC15.Services
 {
     public interface IAuthenticationService
     {
+        Task<bool> IsSignedIn();
+
         Task<bool> SignIn();
 
         Task<bool> SignOut();

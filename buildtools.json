@@ -4,9 +4,14 @@
     "POC15": {
       "properties": [
         {
-          "name": "androidSecret",
+          "name": "androidAppCenterSecret",
           "type": "String",
           "defaultValue": "00000000-0000-0000-0000-000000000000"
+        },
+        {
+          "name": "androidRedirectUriSecret",
+          "type": "String",
+          "defaultValue": "msauth://PACKAGE-NAME/HASH"
         },
         {
           "name": "clientSecret",
@@ -14,9 +19,14 @@
           "defaultValue": "00000000-0000-0000-0000-000000000000"
         },
         {
-          "name": "iOSSecret",
+          "name": "iOSAppCenterSecret",
           "type": "String",
           "defaultValue": "00000000-0000-0000-0000-000000000000"
+        },
+        {
+          "name": "iOSRedirectUriSecret",
+          "type": "String",
+          "defaultValue": "msauth.BUNDLE-ID://auth"
         }
       ]
     }

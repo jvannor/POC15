@@ -18,7 +18,6 @@ namespace POC15
             builder.RegisterType<AboutViewModel>();
             builder.RegisterType<ItemDetailViewModel>();
             builder.RegisterType<ItemsViewModel>();
-            builder.RegisterType<LoadingViewModel>();
             builder.RegisterType<LoginViewModel>();
             builder.RegisterType<NewItemViewModel>();
 

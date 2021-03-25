@@ -28,7 +28,7 @@ namespace POC15
 
         protected override void OnStart()
         {
-            AppCenter.Start($"android={Secrets.androidSecret};ios={Secrets.iOSSecret}", typeof(Analytics), typeof(Crashes));
+            AppCenter.Start($"android={Secrets.androidAppCenterSecret};ios={Secrets.iOSAppCenterSecret}", typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()
