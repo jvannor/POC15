@@ -16,13 +16,13 @@
         <u:EventToCommandBehavior EventName="Appearing" Command="{Binding CheckSignInStatusCommand}"/>
     </ContentPage.Behaviors>
     <ContentPage.Content>
-        <Grid Margin="10" RowDefinitions="*, *, Auto">
+        <Grid Margin="10,0" RowDefinitions="0.33*, 0.33*, 0.33*">
             <Label Text="POC15" FontSize="Large" HorizontalOptions="Center" VerticalOptions="End" />
-            <StackLayout Grid.Row="1" VerticalOptions="Start">
-                <ActivityIndicator Color="Accent" HorizontalOptions="Center" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
-                <Label Text="Loading..." HorizontalOptions="Center" IsVisible="{Binding IsBusy}" />
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1">
+                <ActivityIndicator Color="Accent" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+                <Label Text="Loading..." IsVisible="{Binding IsBusy}" />
             </StackLayout>
-            <Button Grid.Row="2" Text="Login" Command="{Binding LoginCommand}"/>
+            <Button Text="Login" Command="{Binding LoginCommand}" VerticalOptions="Start" Grid.Row="2" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
