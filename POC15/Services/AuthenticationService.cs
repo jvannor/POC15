@@ -35,7 +35,7 @@ namespace POC15.Services
         public AuthenticationService()
         {
             pca = PublicClientApplicationBuilder.Create(Secrets.clientSecret)
-                .WithIosKeychainSecurityGroup("com.detroitcyclecar.dev.POC15")                                               
+                .WithIosKeychainSecurityGroup("com.detroitcyclecar.dev.poc15")                                               
                 .WithRedirectUri(RedirectUri)
                 .WithAuthority("https://login.microsoftonline.com/common")
                 .Build();
